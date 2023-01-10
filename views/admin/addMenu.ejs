@@ -1,0 +1,159 @@
+<%- contentFor('HeaderCss') %> <%- contentFor('breadcrumb') %>
+
+<div class="row">
+  <div class="col-12">
+    <div
+      class="page-title-box d-sm-flex align-items-center justify-content-between"
+    >
+      <h4 class="mb-sm-0">addmenu</h4>
+
+      <div class="page-title-right">
+        <ol class="breadcrumb m-0">
+          <li class="breadcrumb-item">
+            <a href="">addmenu</a>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- contentFor('body') %>
+
+<div class="row">
+  <div class="col-xl-12">
+    <div class="card">
+      <div class="card-body">
+        <form
+          class="needs-validation"
+          novalidate
+          action="/admin/menu"
+          method="post"
+        >
+          <div class="row">
+            <div class="col-md-3">
+                <div class="mb-3">
+                  <label for="validationCustom01" class="form-label"></label>
+                    coffename</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="validationCustom01"
+                    placeholder="id"
+                    value=""
+                    name="id"
+                    required
+                  />
+                  <div class="valid-feedback">Looks good!</div>
+                </div>
+              </div>
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="validationCustom01" class="form-label"></label>
+                  coffename</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom01"
+                  placeholder="productName"
+                  value=""
+                  name="productName"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="validationCustom01" class="form-label">price</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom01"
+                  placeholder="price"
+                  name="price"
+                  value=""
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="validationCustom01" class="form-label"
+                  >image</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom01"
+                  placeholder="image"
+                  value=""
+                  name="image"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="mb-3">
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="validationCustom01" class="form-label">
+                    detail</label
+                >
+                <input
+                  type="detail"
+                  class="form-control"
+                  id="validationCustom01"
+                  placeholder="detail"
+                  value=""
+                  name="detail"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+            </div>
+
+           
+
+            <div class="col-md-3">
+             
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+          <div class="col-md-12"></div>
+
+          <button class="btn btn-primary" type="submit" class="col-md-12">
+            Submit form
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- end card -->
+  </div>
+  <!-- end col -->
+
+  <!-- end col -->
+</div>
+<!-- end row -->
+
+<!-- end row -->
+
+<%- contentFor('FooterJs') %>
+
+<script src="/public/assets/libs/parsleyjs/parsley.min.js"></script>
+
+<script src="/public/assets/js/pages/form-validation.init.js"></script>
+
+<%- contentFor('BottomJs') %>

@@ -1,0 +1,235 @@
+<%- contentFor('HeaderCss') %> <%- contentFor('breadcrumb') %>
+
+<div class="row">
+  <div class="col-12">
+    <div
+      class="page-title-box d-sm-flex align-items-center justify-content-between"
+    >
+      <h4 class="mb-sm-0">update menus</h4>
+
+      <div class="page-title-right">
+        <ol class="breadcrumb m-0">
+          <li class="breadcrumb-item">
+            <a href=""> mude and coffe </a>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- contentFor('body') %>
+
+<div class="row">
+  <div class="col-xl-12">
+    <div class="card">
+      <div class="card-body">
+        <form class="needs-validation" novalidate id="hargeisa">
+          <div class="row">
+            <!-- fist one star here  -->
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="validationCustom01" class="form-label">
+                  menu Id</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="id"
+                  value="<%=menu.id%>"
+                  id="id"
+                  name="id"
+                  value="id"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+            </div>
+            <!-- added div -->
+            <!-- ended 1  -->
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="validationCustom01" class="form-label">
+                  productName</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="productName"
+                  value="<%=menu.productName%>"
+                  id="productName"
+                  name="productName"
+                  value="productName"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+            </div>
+            <!-- ended 2 here -->
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="validationCustom01" class="form-label">
+                  price</label
+                >
+                <input
+                  type="price"
+                  class="form-control"
+                  placeholder="price"
+                  value="<%=menu.price%>"
+                  id="price"
+                  name="price"
+                  value="price"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+            </div>
+            <!-- eneded 3 here -->
+
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="validationCustom01" class="form-label">
+                  discount</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="discount"
+                  value="<%=menu.discount%>"
+                  id="discount"
+                  name="discount"
+                  value="discount"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+            </div>
+
+            <!-- four enede here  -->
+          </div>
+
+          <!-- qaybta hoose  -->
+          <div class="row">
+            <!-- fist one star here  -->
+
+            <!-- ended 1  -->
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="validationCustom01" class="form-label">
+                  image</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder=" image"
+                  value="<%=menu.image%>"
+                  id="image"
+                  name="image"
+                  value="image"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+            </div>
+            <!-- ended 2 here 
+             -->
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="validationCustom01" class="form-label">
+                  detail</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="detail"
+                  value="<%=menu.detail%>"
+                  id="detail"
+                  name="detail"
+                  value="detail"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+            </div>
+            <!-- eneded 3 here -->
+
+            <div class="col-md-3"></div>
+
+            <!-- four enede here  -->
+          </div>
+
+          <!-- halkan  ka bilow -->
+
+          <div class="col-md-12">
+            <div class="mb-3">
+              <div class="invalid-feedback">Please provide a valid city.</div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" type="submit" class="col-md-12">
+            Submit updated data
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- end card -->
+  </div>
+  <!-- end col -->
+
+  <!-- end col -->
+</div>
+<!-- end row -->
+
+<!-- end row -->
+
+<%- contentFor('FooterJs') %>
+
+<script src="/public/assets/libs/parsleyjs/parsley.min.js"></script>
+
+<script src="/public/assets/js/pages/form-validation.init.js"></script>
+
+<%- contentFor('BottomJs') %>
+<script>
+  let divo = document.querySelector(`#hargeisa`);
+  // console.log(divo);
+  divo.addEventListener(`submit`, (e) => {
+    e.preventDefault();
+    // console.log("yes");
+
+    // getting id all the inputs
+
+    // const idInput = document.querySelector(`#id`);
+    const productNameInput = document.querySelector(`#productName`);
+    const priceInput = document.querySelector(`#price`);
+    const discountInput = document.querySelector(`#discount`);
+    const imageInput = document.querySelector(`#image`);
+    const detailInput = document.querySelector(`#detail`);
+
+    // scripting data
+
+    let data = {
+      id: idInput.value,
+      productName: productNameInput.value,
+      price: priceInput.value,
+      discount: discountInput.value,
+      image: imageInput.value,
+      detail: detailInput.value,
+    };
+    console.log(data);
+
+    // sendind data form update from to menu site
+    // geting id from form
+    const id = `<%=menu.id%>`;
+    console.log(id);
+
+    fetch(`/admin/menu/${id}`, {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((location.href = "/admin/menu/"))
+      .catch((error) => console(`error`));
+  });
+</script>
